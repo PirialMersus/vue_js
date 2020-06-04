@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 Lesson</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="input">
+        <input type="text" placeholder="enter a" v-model="a" />
+        <input type="text" placeholder="enter b" v-model="b" />
+        <input type="text" placeholder="enter c" v-model="c" />
+      </div>
+      <div class="answers">
+        <!-- {{d}} -->
+        <span v-if="!msg">x1 = {{ x1 }}</span>
+        <span v-if="!msg">x2 = {{ x2 }}</span>
+        <span v-if="msg">msg = {{msg}}</span>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

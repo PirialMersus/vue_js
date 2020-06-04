@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="btn-group">
+        <button
+          class="btn"
+          @click="openAboutModal()"
+          :class="{'active' : isTabActive}"
+        >
+          Open about modal
+        </button>
+        <button class="btn" @click="openContactsModal()">
+          Open contacts modal
+        </button>
+      </div>
+      <modal ref="about" :content="aboutModalText"></modal>
+      <modal ref="contacts" :content="contactsModalText"></modal>
+      <!-- <div class="modal-container" :class="{'active': isModalOpen}">
+        <div class="overlay" @click="closeModal()"></div>
+        <div class="modal">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+            totam ex amet omnis, qui perspiciatis eveniet, saepe doloribus
+            voluptatum nisi officia quis sit quae distinctio eius iure sequi
+            exercitationem possimus?
+          </p>
+        </div>
+      </div> -->
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
