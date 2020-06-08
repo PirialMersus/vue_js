@@ -1,0 +1,11 @@
+{
+    "git.ignoreLimitWarning": true,
+    "editor.formatOnPaste": true,
+ "editor.formatOnSave": true,
+ "editor.formatOnType": true,
+ "terminal.integrated.copyOnSelection": true,
+ "window.nativeTabs": true,
+ "files.insertFinalNewline": true,
+ "files.trimFinalNewlines": true,
+ "files.trimTrailingWhitespace": true
+}

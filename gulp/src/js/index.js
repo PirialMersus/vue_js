@@ -1,4 +1,1 @@
-require('./app/app')
-
-
-console.log("hello")
+require('./app/app');
