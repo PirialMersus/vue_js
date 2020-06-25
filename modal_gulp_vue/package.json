@@ -15,6 +15,7 @@
     "vue": "*",
     "browserify": "*",
     "vueify": "*",
-    "vinyl-source-stream": "*"
+    "vinyl-source-stream": "*",
+    "vue-router": "*"
   }
 }

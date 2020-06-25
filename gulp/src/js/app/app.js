@@ -2,7 +2,8 @@ var Vue = require('vue');
 
 new Vue({
     el: '#app',
-    render: function(init){
+    router: require('./app.router'),
+    render: function (init) {
         return init(require('../../vue/index.vue'));
     }
-})
+});
