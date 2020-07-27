@@ -1,5 +1,5 @@
 {
-  "name": "sliderGulpVue",
+  "name": "Thesis",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "vueify": "*",
     "vinyl-source-stream": "*",
     "vue-router": "*",
+    "vuex": "*",
     "jquery": "*",
     "slick-carousel": "*",
     "axios": "*"

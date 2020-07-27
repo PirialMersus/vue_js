@@ -4,11 +4,8 @@
             <div class="page-title">
                 <h1 class="title">Characters</h1>
             </div>
-            <search-field :characters="characters" @updateQuery="updateQuery"></search-field>
-            <ul>
-                <li v-for="character in filteredCharacters">{{character.name}}</li>
-            </ul>
-            <table v-if="showTable">
+            <search-field :characters="characters" @updateQuery="updateQuery" @pokemonForShowing="getPokemonInformation"></search-field>
+            <!-- <table v-if="showTable">
                 <thead>
                     <th>Имя покемона</th>
                     <th>Информация о покемоне</th>
@@ -16,13 +13,13 @@
                 <tbody>
                     <tr v-for="character in filteredCharacters">
                        <td>{{ character.name }}</td>
-                        <td><a class="pokemonLink" @click="getPokemonInformation(character.url)">{{ character.url }}</a></td> 
+                        <td><a class="pokemonLink" @click="getPokemonInformation(character.url)">{{ character.url }}</a></td>
                     </tr>
                 </tbody>
-            </table>
-            <div class="pokemonInfo" v-else>
+            </table> -->
+            <div class="pokemonInfo" v-if="pokemonInformation.sprites">
                 <h3 class="pokemonName">{{pokemonInformation.name}}</h3>
-                <img class="pokemonAva" :src=pokemonInformation.sprites.front_default alt="">
+                <img class="pokemonAva" :src="pokemonInformation.sprites.front_default" alt="">
                 <h4 class="pokemonWeight">Вес - {{pokemonInformation.weight}}</h4>
                 <h4 class="pokemonHeight">Рост - {{pokemonInformation.height}}</h4>
             </div>
@@ -45,19 +42,24 @@
 
 </style>
 <script>
-    var Axios = require('axios');
 
     module.exports = {
         data: function () {
             return {
-                characters: [],
                 filteredCharacters: [],
-                pokemonInformation: [],
                 showTable: true
             };
         },
         components: {
             'search-field': require('./../components/search.vue')
+        },
+        computed: {
+            characters: function(){
+                return this.$store.getters['getCharacters'];
+            },
+            pokemonInformation: function(){
+                return this.$store.getters['getPokemonInformation'];
+            }
         },
         methods: {
             updateQuery: function (value) {
@@ -65,21 +67,14 @@
                 this.showTable = true;
             },
             getPokemonInformation: function (url) {
-                Axios
-                    .get(url)
-                    .then(function(responce) {
-                        this.pokemonInformation = responce.data;
-                        this.showTable = false;
-                    }.bind(this));
+                this.$store.dispatch('getPokemonInformation', url);
+                this.showTable = false;
+                // console.log(url);
+                // return this.$store.getters['getPokemonInformation'];
             }
         },
         mounted: function () {
-            Axios
-                .get('https://pokeapi.co/api/v2/pokemon/')
-                .then(function (responce) {
-                    this.characters = responce.data.results;
-                    this.filteredCharacters = responce.data.results;
-                }.bind(this));
+            this.$store.dispatch('getCharacters');
         }
     };
 </script>

@@ -17,6 +17,7 @@
     "vueify": "*",
     "vinyl-source-stream": "*",
     "vue-router": "*",
+    "vuex": "*",
     "jquery": "*",
     "slick-carousel": "*",
     "axios": "*"

@@ -1,0 +1,258 @@
+@primary-light: #34495e;
+@primary-dark: #2c3e50;
+
+html,
+body {
+  font-family: "Tahoma";
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+a {
+  text-decoration: none;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 30px;
+}
+
+.top-bar {
+  transition: 0.3s ease all;
+
+  padding: 0 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+  &.full {
+    left: 50px;
+  }
+
+  .search-field {
+    flex-grow: 10;
+    padding-right: 15px;
+
+    input {
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+    }
+  }
+  .actions {
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+
+    .item {
+      padding: 10px 15px;
+      border-right: 1px solid #eee;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .fas {
+        color: #555;
+      }
+    }
+  }
+}
+
+.left-bar {
+  transition: 0.3s ease all;
+  background-color: @primary-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+
+  &.active {
+    // position: relative;
+    // top: 0;
+    // bottom: 0;
+    transform: translateX(-200px);
+
+    .head {
+      padding-left: 210px;
+      padding-right: 0;
+      .title {
+      }
+    }
+    .nav {
+      ul {
+        li {
+          a {
+            padding-left: 215px;
+            font-size: 0;
+            .fas {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .footer {
+        a {
+          padding-left: 215px;
+          font-size: 0;
+        }
+        .fas {
+          transform: rotate(180deg);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .head {
+    transition: 0.3s ease all;
+
+    padding: 0 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    .title {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  .nav {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      width: 20px;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    > ul {
+      margin: 0;
+      padding: 0;
+
+      > li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > a {
+          transition: 0.3s ease all;
+          display: block;
+          align-items: center;
+          color: #fff;
+          padding: 15px 30px;
+          font-size: 14px;
+
+          &:hover {
+            background-color: @primary-dark;
+          }
+
+          // .fas {
+          //   width: 20px;
+          //   text-align: center;
+          //   margin-right: 10px;
+          // }
+        }
+      }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      // flex-shrink: 0;
+
+      a {
+        transition: 0.3s ease all;
+
+        cursor: pointer;
+        display: block;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        padding: 15px 30px;
+        // max-width: 100%;
+
+        &:hover {
+          background-color: @primary-dark;
+        }
+
+        .fas {
+          color: #fff;
+          font-size: 14px;
+          // width: 20px;
+          // text-align: center;
+          // margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+.page-content {
+  transition: 0.3s ease all;
+  padding: 80px 30px 30px 300px;
+
+  &.full {
+    padding-left: 150px;
+  }
+  > div {
+  }
+}
+
+.global-container {
+  &.leftBarCollapsed {
+    .left-bar {
+      transform: translateX(-200px);
+
+      .head {
+        padding-left: 210px;
+        padding-right: 0;
+        .title {
+        }
+      }
+      .nav {
+        ul {
+          li {
+            a {
+              padding-left: 215px;
+              font-size: 0;
+              .fas {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .footer {
+          a {
+            padding-left: 215px;
+            font-size: 0;
+          }
+          .fas {
+            transform: rotate(180deg);
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .top-bar {
+      left: 50px;
+    }
+    .page-content {
+      padding-left: 150px;
+    }
+  }
+}
