@@ -1,12 +1,18 @@
 html,
-body {
+body,
+p {
   font-family: 'Tahoma';
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 .global-container {
   .containerForBoxElement {
+    position: relative;
     .box {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100px;
       width: 100px;
       background-color: blue;
